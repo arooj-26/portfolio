@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arooj Sehar — Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #1a1a2e;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 10.5pt;
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 28mm 24mm 20mm 24mm;
+    }
+
+    @media print {
+      .page { padding: 20mm 22mm 16mm 22mm; }
+      .no-print { display: none !important; }
+    }
+
+    /* ─── Header ─── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 14px;
+      border-bottom: 2.5px solid var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .header-left h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .header-left .title {
+      font-size: 12pt;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 3px;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 9pt;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .header-right a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .header-right a:hover { color: var(--accent); }
+
+    .header-right .label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ─── Sections ─── */
+    .section { margin-bottom: 14px; }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    /* ─── Summary ─── */
+    .summary {
+      font-size: 10pt;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ─── Skills ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .skill-category {
+      font-weight: 600;
+      font-size: 9.5pt;
+      color: var(--primary);
+      white-space: nowrap;
+      min-width: 120px;
+    }
+
+    .skill-items {
+      font-size: 9.5pt;
+      color: var(--text-muted);
+    }
+
+    /* ─── Experience / Education ─── */
+    .entry {
+      margin-bottom: 10px;
+      page-break-inside: avoid;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .entry-title {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .entry-period {
+      font-size: 9pt;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 1px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .entry-org {
+      font-size: 9.5pt;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    .entry-desc {
+      font-size: 9.5pt;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.55;
+    }
+
+    .entry-desc ul {
+      margin-top: 3px;
+      padding-left: 16px;
+    }
+
+    .entry-desc li {
+      margin-bottom: 2px;
+    }
+
+    /* ─── Projects ─── */
+    .project {
+      margin-bottom: 10px;
+      page-break-inside: avoid;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .project-title {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .project-link {
+      font-size: 8.5pt;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-desc {
+      font-size: 9.5pt;
+      color: var(--text-muted);
+      margin-top: 2px;
+      line-height: 1.55;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .tech-tag {
+      font-size: 8pt;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 1px 7px;
+      border-radius: 3px;
+      border: 1px solid #dbeafe;
+    }
+
+    /* ─── Print button ─── */
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+      transition: all 0.2s;
+    }
+    .print-btn:hover { background: #1d4ed8; transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+  <div class="page">
+
+    <!-- ═══ HEADER ═══ -->
+    <div class="header">
+      <div class="header-left">
+        <h1>Arooj Sehar</h1>
+        <div class="title">Aspiring AI / ML Engineer</div>
+      </div>
+      <div class="header-right">
+        <div><span class="label">Email:</span> sehararooj126@gmail.com</div>
+        <div><span class="label">Location:</span> Karachi, Pakistan</div>
+        <div><span class="label">GitHub:</span> <a href="https://github.com/arooj-26">github.com/arooj-26</a></div>
+        <div><span class="label">LinkedIn:</span> <a href="https://www.linkedin.com/in/arooj-sehar-662396306/">linkedin.com/in/arooj-sehar</a></div>
+        <div><span class="label">Portfolio:</span> <a href="https://aroojsehar.vercel.app">aroojsehar.vercel.app</a></div>
+      </div>
+    </div>
+
+    <!-- ═══ SUMMARY ═══ -->
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <p class="summary">
+        Motivated AI/ML Engineer with a strong foundation in information systems and a deep passion for building intelligent,
+        production-ready applications. Specializing in <strong>Agentic AI</strong>, <strong>Retrieval-Augmented Generation (RAG)</strong>,
+        and <strong>full-stack development</strong> using Python and cloud-native technologies. Currently advancing skills through
+        the Governor Initiative's Agentic AI program, with hands-on experience in multi-agent systems, LangGraph orchestration,
+        and containerized deployments. Adept at transforming complex AI concepts into practical, user-centric solutions.
+      </p>
+    </div>
+
+    <!-- ═══ SKILLS ═══ -->
+    <div class="section">
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-category">Agentic AI:</span>
+          <span class="skill-items">OpenAI Agent SDK, LangGraph, LangChain, RAG, Prompt Engineering, Claude Code</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Languages:</span>
+          <span class="skill-items">Python, JavaScript, TypeScript, SQL</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Web Development:</span>
+          <span class="skill-items">Next.js, React, FastAPI, Streamlit, Tailwind CSS, HTML/CSS</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Cloud & DevOps:</span>
+          <span class="skill-items">Docker, Kubernetes, GitHub Actions, Vercel</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Data & Databases:</span>
+          <span class="skill-items">PostgreSQL, Neon, Apache Kafka, Pandas</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Tools & Protocols:</span>
+          <span class="skill-items">MCP, Git, VS Code, Jupyter, Linux</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ EDUCATION ═══ -->
+    <div class="section">
+      <div class="section-title">Education</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Master's in Information Management & Library Science</span>
+          <span class="entry-period">Completed</span>
+        </div>
+        <div class="entry-org">University of Punjab</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Gained strong foundations in information systems, data management, and research methodologies</li>
+            <li>Developed analytical and organizational skills applicable to data-driven AI solutions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Agentic AI & Cloud Native Development</span>
+          <span class="entry-period">Ongoing</span>
+        </div>
+        <div class="entry-org">PIAIC / Governor Initiative for AI & Computing</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Intensive program covering Agentic AI, OpenAI Agent SDK, LangGraph, and cloud-native development</li>
+            <li>Building production-grade AI applications using Docker, Kubernetes, and modern deployment pipelines</li>
+            <li>Developing multi-agent systems and RAG-based applications with real-world use cases</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PROJECTS ═══ -->
+    <div class="section">
+      <div class="section-title">Projects</div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">TODO App — Full-Stack Task Management</span>
+          <a class="project-link" href="https://github.com/arooj-26/todo-hackathon">github.com/arooj-26/todo-hackathon</a>
+        </div>
+        <div class="project-desc">
+          <ul>
+            <li>Built a full-stack task management application with user authentication and complete CRUD operations</li>
+            <li>Implemented event-driven architecture using Apache Kafka for real-time data streaming</li>
+            <li>Deployed on Kubernetes with containerized microservices and PostgreSQL database backend</li>
+            <li>Designed responsive UI with Next.js, TypeScript, and Tailwind CSS</li>
+          </ul>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">Kafka</span>
+          <span class="tech-tag">Tailwind CSS</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Python Learning Platform — Interactive Education App</span>
+          <a class="project-link" href="https://github.com/arooj-26/learn-flow-app">github.com/arooj-26/learn-flow-app</a>
+        </div>
+        <div class="project-desc">
+          <ul>
+            <li>Developed an interactive platform for beginners to learn Python through structured lessons and quizzes</li>
+            <li>Integrated OpenAI-powered chatbot for real-time coding assistance and doubt resolution</li>
+            <li>Implemented Google authentication and user management with BetterAuth</li>
+            <li>Enabled in-browser Python execution using Pyodide for hands-on coding exercises</li>
+          </ul>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Pyodide</span>
+          <span class="tech-tag">Docusaurus</span>
+          <span class="tech-tag">OpenAI</span>
+          <span class="tech-tag">Google Auth</span>
+          <span class="tech-tag">Chatbot</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Interactive Python Book — Digital Learning Resource</span>
+          <a class="project-link" href="https://github.com/arooj-26/python-book">github.com/arooj-26/python-book</a>
+        </div>
+        <div class="project-desc">
+          <ul>
+            <li>Created a digital interactive book with embedded code editors and live Python execution</li>
+            <li>Built progressive learning paths from basics to advanced topics with real-time feedback</li>
+            <li>Implemented semantic search using Qdrant vector database for intelligent content discovery</li>
+            <li>Developed RESTful API backend with FastAPI and Neon (PostgreSQL) for user progress tracking</li>
+          </ul>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Qdrant</span>
+          <span class="tech-tag">Neon DB</span>
+          <span class="tech-tag">Jupyter</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ ADDITIONAL ═══ -->
+    <div class="section">
+      <div class="section-title">Additional</div>
+      <div class="entry-desc">
+        <ul>
+          <li><strong>Self-Directed Learning:</strong> Actively building projects with RAG pipelines, multi-agent systems, and full-stack AI applications</li>
+          <li><strong>Open Source:</strong> Regular contributor on GitHub — building and sharing AI/ML projects with the community</li>
+          <li><strong>Interests:</strong> AI research papers, educational content creation, open-source contribution, cloud-native architecture</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
