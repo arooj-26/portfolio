@@ -13,7 +13,7 @@ export const personalInfo = {
   bio: "Passionate about building intelligent systems with modern AI frameworks. I specialize in agentic AI, retrieval-augmented generation, and full-stack development with a focus on Python and cloud-native technologies.",
   email: "sehararooj126@gmail.com",
   location: "Karachi, Pakistan",
-  resumeUrl: "/Arooj_Resume.pdf",
+  resumeUrl: "/Arooj_resume.pdf",
 };
 
 export const socialLinks = [
